@@ -20,4 +20,4 @@
 
 1. 仓库首页展示一个失败样例的前后结果、安装条件和对比表。实际运行后填入已核验的结果，并链接到该次评测的固定提交、样本、配置、运行命令和汇总报告。原始完整日志只在可公开且经脱敏时上传。CI 跑不依赖密钥的契约用例；真实模型对照作为手工或可选工作流。
 2. 在发布前定下正式包名、许可证、宿主版本范围、安装与卸载说明。检查包内容，使用干净 Pi 配置验证固定版本安装、启用、触发、断连、卸载。先用 Git 分发测试版，再考虑 npm 和 pi-package 关键字。首版由用户自行获取和配置模型。[Pi 包规范](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/packages.md)
-3. 当前 DSH 的 GitHub MCP 连接器未配置。Codex CLI 的 MCP 列表未显示名为 GitHub 的服务，范围不覆盖 Codex 应用内插件或账号授权。当前机器的 gh 已通过只读 API 验证。准备好的本地文件可通过 gh 和 Git 放进指定仓库，仓库写权限在明确目标后核对。若希望在 DSH 直接用 GitHub MCP，打开连接器市场的 GitHub 项，通过凭据输入界面配置仅授权目标仓库的细粒度 PAT，按实际需要选择读取或写入权限，再验证连接和目标仓库访问。使用者的 GitHub 凭据只用于开发和发布流程，插件运行不依赖它。[GitHub MCP](https://github.com/github/github-mcp-server) · [GitHub CLI](https://cli.github.com/manual/gh)
+3. 当前机器的 gh 已通过 GitHub API 只读验证。准备好的本地文档可通过 Git 发布到目标仓库。若要在 DSH 会话中调用 GitHub MCP，先在连接器市场添加 GitHub 连接，按需要配置只授权该仓库的细粒度 PAT，并验证连接和仓库访问。Codex CLI 中未见独立 GitHub MCP 服务；Codex 应用内的插件或账号连接配置不等同于该 CLI 的 MCP 列表。GitHub 凭据只用于开发和发布流程，插件运行不依赖它。[GitHub MCP](https://github.com/github/github-mcp-server) · [GitHub CLI](https://cli.github.com/manual/gh)
